@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     const getData = async () => {
-      const fetchData = await fetch("/data.json");
+      const fetchData = await fetch("/public/data.json");
       const convertedData = await fetchData.json();
 
       console.log(convertedData);
