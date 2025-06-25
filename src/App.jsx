@@ -4,28 +4,32 @@ import HomePage from "./pages/HomePage";
 import CountryDetails from "./pages/CountryDetails";
 import NavBar from "./components/NavBar";
 import { useEffect, useState } from "react";
+import countriesData from "./data.json";
 
 function App() {
   // ======================DECLARE INITIALS===============
-  const [allCountries, setAllCountries] = useState([]);
+  const [allCountries] = useState(countriesData);
+
+  // =============DECLARE LOADING=============
+  const [isLoading, setIsLoading] = useState(true);
 
   // =======DECLARE FILTERED INITIALS==========
   const [filteredCountries, setFilteredCountries] = useState([]);
 
   // =====================FETCHING API OF ALL COUNTRIES=========================
 
-  useEffect(() => {
-    const getData = async () => {
-      const fetchData = await fetch("/public/data.json");
-      const convertedData = await fetchData.json();
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const fetchData = await fetch("/src/data.json");
+  //     const convertedData = await fetchData.json();
 
-      console.log(convertedData);
+  //     console.log(convertedData);
 
-      setAllCountries(convertedData);
-    };
+  //     setAllCountries(convertedData);
+  //   };
 
-    getData();
-  }, []);
+  //   getData();
+  // }, []);
 
   // ================================FILTER BY SEARCH===========================
 

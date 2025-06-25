@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import EachCountry from "../components/EachCountry";
 import { useLocation, useParams } from "react-router-dom";
+import countriesData from "../data.json";
 
-const CountryDetails = ({ totalCountry }) => {
+const CountryDetails = () => {
   const { countryName } = useParams();
 
   const [country, setCountry] = useState(null);
@@ -12,7 +13,7 @@ const CountryDetails = ({ totalCountry }) => {
 
   const findCountry =
     state.country ||
-    detailsByCountry.find((country) => {
+    countriesData.find((country) => {
       return country.name === decodeURIComponent(countryName);
     });
   console.log(findCountry);
